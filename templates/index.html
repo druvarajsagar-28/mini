@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explainable AI interface for diabetic retinopathy screening.">
+  <title>DR Screening | Explainable AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <h1>DR<span>Screen</span></h1>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Explainable AI • Retinal Screening</p>
+      <h2>Diabetic Retinopathy Screening</h2>
+      <p>Upload a retinal fundus image to check whether a configured AI model is available for analysis.</p>
+    </div>
+  </section>
+
+  <section class="card" id="screening">
+    <h2>Upload Retinal Image</h2>
+    <p class="muted">Supported formats: JPG, JPEG, PNG</p>
+    <form id="uploadForm">
+      <label class="dropzone" for="imageInput">
+        <span class="icon">⬆</span>
+        <strong>Drag & Drop or Click to Browse</strong>
+        <small id="fileName">No file selected</small>
+      </label>
+      <input id="imageInput" name="image" type="file" accept=".jpg,.jpeg,.png" hidden>
+      <button type="submit">Analyze Image</button>
+    </form>
+    <div id="result" class="result" aria-live="polite"></div>
+  </section>
+
+  <section class="info" id="about">
+    <div class="info-card">
+      <h3>Why Explainable AI?</h3>
+      <p>Explainable AI methods can help clinicians understand which image regions contributed to a model output.</p>
+    </div>
+    <div class="info-card">
+      <h3>Important</h3>
+      <p>This demo does not create random predictions. A validated trained model must be connected before clinical predictions are produced.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Educational prototype — not a medical diagnosis.</p>
+</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
